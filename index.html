@@ -16,6 +16,7 @@
 
     *{box-sizing:border-box}
     html{-webkit-text-size-adjust:100%}
+
     body{
       margin:0;
       min-height:100vh;
@@ -283,7 +284,11 @@
       gap:12px
     }
 
-    .address-head{display:flex;align-items:flex-start;gap:12px}
+    .address-head{
+      display:flex;
+      align-items:flex-start;
+      gap:12px
+    }
 
     .address-icon{
       width:42px;
@@ -301,28 +306,33 @@
     .address-copy .ar{font-size:.93rem;color:var(--text);line-height:1.6}
     .address-copy .en{font-size:.88rem;color:var(--muted);line-height:1.5}
 
-    .steps-card{
+    .method-grid{
+      display:grid;
+      gap:12px;
+    }
+
+    .method-card{
       border:1px solid var(--border);
       border-radius:16px;
       background:#fff;
       padding:14px;
       display:grid;
-      gap:12px;
+      gap:10px;
     }
 
-    .steps-title{
+    .method-title{
       display:grid;
-      gap:3px;
+      gap:2px;
     }
 
-    .steps-title .ar{
-      font-size:.92rem;
+    .method-title .ar{
+      font-size:.95rem;
       font-weight:800;
       color:var(--text);
     }
 
-    .steps-title .en{
-      font-size:.83rem;
+    .method-title .en{
+      font-size:.82rem;
       color:var(--muted);
       font-weight:600;
     }
@@ -364,32 +374,35 @@
     .ar-flow{direction:rtl}
     .en-flow{direction:ltr}
 
-    .address-actions{display:flex;flex-wrap:wrap;gap:10px}
+    .method-actions{
+      display:grid;
+      gap:10px;
+    }
 
     .link-btn{
       display:inline-flex;
       align-items:center;
+      justify-content:center;
       gap:8px;
-      min-height:46px;
+      min-height:48px;
       padding:0 16px;
       border-radius:14px;
       background:#fff;
       border:1px solid var(--border);
       color:var(--primary-dark);
-      font-weight:800
+      font-weight:800;
+      text-align:center
     }
 
     .link-btn:hover{background:#f9fbff}
-    .whatsapp-btn{background:#eefaf3;border-color:#cfe8d9;color:#1f7a52}
-    .whatsapp-btn:hover{background:#e6f6ed}
 
-    .link-url{
-      font-size:.82rem;
-      color:var(--muted);
-      word-break:break-all;
-      direction:ltr;
-      text-align:left
+    .whatsapp-btn{
+      background:#eefaf3;
+      border-color:#cfe8d9;
+      color:#1f7a52
     }
+
+    .whatsapp-btn:hover{background:#e6f6ed}
 
     .clinic-box{
       border-radius:18px;
@@ -499,22 +512,14 @@
 
     .hidden{display:none!important}
 
-    .credit-watermark{
-      position:fixed;
-      right:14px;
-      bottom:10px;
-      z-index:999;
-      font-size:.66rem;
-      line-height:1.35;
-      color:#bcc7d4;
-      opacity:.82;
-      letter-spacing:.1px;
-      direction:rtl;
+    .footer-credit{
+      margin-top:18px;
+      padding-top:8px;
       text-align:right;
+      font-size:.56rem;
+      line-height:1.5;
+      color:#dbe2eb;
       user-select:none;
-      pointer-events:none;
-      white-space:nowrap;
-      text-shadow:0 1px 0 rgba(255,255,255,.35);
     }
 
     @media (min-width:640px){
@@ -526,16 +531,11 @@
       .clinic-grid{grid-template-columns:1fr 1fr}
       .review-item{grid-template-columns:minmax(220px,290px) 1fr;align-items:start}
       .review-label{gap:3px}
+      .method-actions{grid-template-columns:1fr 1fr}
     }
 
     @media (max-width:640px){
-      .credit-watermark{
-        right:10px;
-        bottom:8px;
-        font-size:.58rem;
-        max-width:calc(100vw - 20px);
-        white-space:normal;
-      }
+      .footer-credit{font-size:.52rem}
     }
 
     @media (min-width:900px){
@@ -708,57 +708,64 @@
                       </div>
 
                       <div class="address-copy">
-                        <p class="ar">في حال كان المريض لا يعرف عنوانه الوطني المختصر، يمكن معرفته من خلال توكلنا أو عبر الرابط التالي أو التواصل مع البريد السعودي على واتساب.</p>
-                        <p class="en">If the patient does not know the short national address, it can be found through Tawakkalna, the following link, or by contacting Saudi Post via WhatsApp.</p>
+                        <p class="ar">في حال كان المريض لا يعرف العنوان الوطني المختصر، فيمكنه اختيار أي طريقة من الطرق التالية للحصول عليه.</p>
+                        <p class="en">If the patient does not know the Short National Address, they may use any of the following methods to find it.</p>
                       </div>
                     </div>
 
-                    <div class="steps-card">
-                      <div class="steps-title">
-                        <span class="ar">خطوات العثور على العنوان المختصر عبر توكلنا</span>
-                        <span class="en">How to find the Short Address in Tawakkalna</span>
+                    <div class="method-grid">
+                      <div class="method-card">
+                        <div class="method-title">
+                          <span class="ar">الطريقة الأولى: عبر توكلنا</span>
+                          <span class="en">Method 1: Through Tawakkalna</span>
+                        </div>
+
+                        <div class="steps-flow ar-flow">
+                          <span class="step-chip">توكلنا</span>
+                          <span class="step-arrow">←</span>
+                          <span class="step-chip">معلوماتي</span>
+                          <span class="step-arrow">←</span>
+                          <span class="step-chip">العنوان الوطني</span>
+                          <span class="step-arrow">←</span>
+                          <span class="step-chip">المزيد</span>
+                          <span class="step-arrow">←</span>
+                          <span class="step-chip strong">العنوان المختصر</span>
+                        </div>
+
+                        <div class="steps-flow en-flow" dir="ltr">
+                          <span class="step-chip">Tawakkalna</span>
+                          <span class="step-arrow">→</span>
+                          <span class="step-chip">Personal</span>
+                          <span class="step-arrow">→</span>
+                          <span class="step-chip">National Address</span>
+                          <span class="step-arrow">→</span>
+                          <span class="step-chip">See More</span>
+                          <span class="step-arrow">→</span>
+                          <span class="step-chip strong">Short Address</span>
+                        </div>
                       </div>
 
-                      <div class="steps-flow ar-flow">
-                        <span class="step-chip">توكلنا</span>
-                        <span class="step-arrow">←</span>
-                        <span class="step-chip">معلوماتي</span>
-                        <span class="step-arrow">←</span>
-                        <span class="step-chip">العنوان الوطني</span>
-                        <span class="step-arrow">←</span>
-                        <span class="step-chip">المزيد</span>
-                        <span class="step-arrow">←</span>
-                        <span class="step-chip strong">العنوان المختصر</span>
-                      </div>
+                      <div class="method-card">
+                        <div class="method-title">
+                          <span class="ar">الطريقة الثانية أو الثالثة</span>
+                          <span class="en">Method 2 or 3</span>
+                        </div>
 
-                      <div class="steps-flow en-flow" dir="ltr">
-                        <span class="step-chip">Tawakkalna</span>
-                        <span class="step-arrow">→</span>
-                        <span class="step-chip">Personal</span>
-                        <span class="step-arrow">→</span>
-                        <span class="step-chip">National Address</span>
-                        <span class="step-arrow">→</span>
-                        <span class="step-chip">See More</span>
-                        <span class="step-arrow">→</span>
-                        <span class="step-chip strong">Short Address</span>
+                        <div class="method-actions">
+                          <a class="link-btn" href="https://maps.address.gov.sa/?lng=46.6704&lat=24.6976&zoom=4&style=streets" target="_blank" rel="noopener noreferrer">
+                            <span>فتح رابط العنوان الوطني</span>
+                            <span>/</span>
+                            <span>Open National Address Link</span>
+                          </a>
+
+                          <a class="link-btn whatsapp-btn" href="https://wa.me/966112898888" target="_blank" rel="noopener noreferrer">
+                            <span>التواصل عبر واتساب</span>
+                            <span>/</span>
+                            <span>Open WhatsApp Chat</span>
+                          </a>
+                        </div>
                       </div>
                     </div>
-
-                    <div class="address-actions">
-                      <a class="link-btn" href="https://maps.address.gov.sa/?lng=46.6704&lat=24.6976&zoom=4&style=streets" target="_blank" rel="noopener noreferrer">
-                        <span>فتح رابط العنوان الوطني</span>
-                        <span>/</span>
-                        <span>Open National Address Link</span>
-                      </a>
-                      <a class="link-btn whatsapp-btn" href="https://wa.me/966112898888" target="_blank" rel="noopener noreferrer">
-                        <span>التواصل عبر واتساب</span>
-                        <span>/</span>
-                        <span>Open WhatsApp Chat</span>
-                      </a>
-                    </div>
-
-                    <div class="link-url">https://maps.address.gov.sa/?lng=46.6704&amp;lat=24.6976&amp;zoom=4&amp;style=streets</div>
-                    <div class="link-url">+966112898888</div>
                   </div>
                 </div>
 
@@ -858,13 +865,13 @@
             </div>
           </section>
         </section>
+
+        <div class="footer-credit">
+          تم تصميم هذه الواجهة بواسطة وعد الوقداني | email: waadalwagdani@gmail.com
+        </div>
       </div>
     </section>
   </main>
-
-  <div class="credit-watermark">
-    تم تصميم هذه الواجهة بواسطة وعد الوقداني | email: waadalwagdani@gmail.com
-  </div>
 
   <script>
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx9NcaAI1DkF03FM16RJaBsB-pcW3W3-L5txQCxcnXGwtlMfEScUlI1SZ-2gOU7_PPL/exec';
